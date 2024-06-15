@@ -3,7 +3,6 @@
 [メモ]
 flex　→　親要素に対して子要素を横並びにする機能
 display: flexで有効にすることができる
-
 */
 
 
@@ -74,26 +73,21 @@ body {
     color: #3c353c;
     font-weight: 100;
     letter-spacing:10px;               /* 文字の幅 */
-
-    /*animation-name:Anime;
-    animation-duration:3s ;/* アニメーション再生*/
-    
+    transform: translateY(0px);
 }
 
-@keyframes Anime {
-    0%{
-        transform: translateY(0px);
-      }
-    
-    100%{
-        transform: translateY(-250px);
-      }
+/* アニメーション用 */
+.portfolio-title.anim {
+  animation-name:Anime;
+  animation-duration:3s ;/* アニメーション再生*/
+  animation-fill-mode:forwards;
 }
+
+
 
 /* 非表示 */
 .hidden {
     display: none;
-    animation-name:Anime;
 }
 
 .profile-img {
@@ -107,4 +101,17 @@ body {
 #about-section_infroduction{
     color: #3c353c;
     margin-left: 100px;
+}
+
+/* タイトル文字用 */
+@keyframes Anime {
+  0%{
+      transform: translateY(50px);
+      opacity:0;
+    }
+  
+  100%{
+      transform: translateY(0px);
+      opacity:1;
+    }
 }
