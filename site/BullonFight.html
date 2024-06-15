@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/profile.css" />
+    <link rel="stylesheet" href="../styles/vendors/swiper-bundle.min.css" />
+    <title>pot</title>
+</head>
+
+<body>
+    <header>
+        <h1>BalloonFight</h1>
+    </header>
+
+    <div class="container">
+        <div class="section headline">
+            <h2>作品概要</h2>
+            <p>任天堂さんが1984年に開発したBalloonFightという既存のゲームをチーム制作で再現しました。<br>
+            プレイヤーがバルーンを取り付けたキャラクターを操作して、風船を割りあう事で敵と戦うアクションゲームです</p>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section GameImg">
+            <img src="../images/BalloonFight.png" alt="タイトル画像">
+            <img src="../images/BF_game.png" alt="ゲーム画像">
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section overview">
+            <h3>ゲームジャンル</h3>
+            <p>アクション</p>
+            <h3>開発環境・使用言語</h3>
+            <p>:c++ :DxLib</p>
+            <h3>制作時間</h3>
+            <p>3ヶ月</p>
+            <h3>製作人数</h3>
+            <p>5人</p>
+            <h3>担当箇所</h3>
+            <p>雷・ステージブロック</p>
+            <h3>動画URL</h3>
+            <p>未実装</p>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section production">
+            <h2>制作背景</h2>
+            <p>BalloonFightという実際にあるゲームを制作する事で、ゲームへの理解が深まり、キャラクターの動きや物理的な挙動を取り入れる中で、どこまで現実に近づけるのか等、デフォルメのバランス感が身についたと感じます。<br>
+            またプログラムを組む上でのルール決めなど、前回作ったリンゴ落としの反省点を生かした制作の進め方が出来ました。</p>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section challenge">
+            <h2>挑戦したこと</h2>
+            <p>クラスを使った効率的な作成に挑戦しました。<br>
+            また、C＋＋のオブジェクト思考を取り入れることで当たり判定を作成してそれを必要とするオブジェクトに継承する事で無駄な記述を避け、分かりやすく効率的にまとめる事ができました。</p>
+        </div>
+
+        <div class="section GameImg">
+            <img src="../images/BFcode2.png" alt="雷の処理">
+            <img src="../images/BFcode.png" alt="雷の処理">
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section introduction">
+            <h2>こだわった部分</h2>
+            <h3>クラス型配列を使った雷の実装</h3>
+            <p>クラスを配列で作成し、雷の出現位置をコンストラクタに値を入れることで指定しました。<br>
+            その際、配列に値にコンストラクタで全てnullptrに設定し、nullptrの場合のみnewでメモリ確保を行うことで値が上書きされることがないように調整しました。</p>
+        </div>
+
+        <div class="section GameImg">
+            <img src="../images/雷a.png" alt="雷の処理">
+            <img src="../images/雷p.png" alt="雷の処理">
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section learn">
+            <h2>学んだこと</h2>
+            <p>今回の制作はゲームの処理が難しく、自身に対して力不足を感じました。<br>
+            制作時は敵の処理を任されていましたが、敵を作成する上で非効率な書き方をしていたり、うまく動かせないことがあり教えてもらいながら処理を作った部分が多くありました。<br>
+            この製作を通して効率的かつ、クラスをうまく使った処理を書く力がとても身につきました。<br>
+            また、今回の制作を通して自身の力不足と向き合い勉強に対しより積極的になったと感じています</p>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const headings = document.querySelectorAll("h2");
+
+    window.addEventListener("scroll", function() {
+        headings.forEach(function(heading) {
+            if (isElementInViewport(heading)) {
+                heading.classList.add("fadeIn");
+            } else {
+                heading.classList.remove("fadeIn");
+            }
+        });
+    });
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+});
+</script>

@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/profile.css" />
+    <link rel="stylesheet" href="../styles/vendors/swiper-bundle.min.css" />
+    <title>pot</title>
+</head>
+
+<body>
+    <header>
+        <h1>SUMMONSTER</h1>
+    </header>
+
+    <div class="container">
+        <div class="section headline">
+            <h2>作品概要</h2>
+            <p>
+                福岡ゲームコンテスト（GFF）に応募する為の作品としてUnreal Engineを使い、７人のチームを組んで制作しました。<br>
+                仲間となるモンスターを召喚し、時には合体させたり組み合わせたりして敵やギミックを乗り越えて、ゴールを目指す２Ⅾアクションゲームです。
+            </p>
+            <div class="video-frame">
+                <video controls>
+                    <source src="../moves/SUMMON.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+            </div>
+        </div>
+
+        
+
+        <div class="section overview">
+            <h3>ゲームジャンル</h3>
+            <p>アクション</p>
+            <h3>開発環境・使用言語</h3>
+            <p>UnrealEngine(ブループリント)</p>
+            <h3>制作時間</h3>
+            <p>3ヶ月</p>
+            <h3>製作人数</h3>
+            <p>7人</p>
+            <h3>担当箇所</h3>
+            <p>プレイヤー・敵蝙蝠</p>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section production">
+            <h2>制作背景</h2>
+            <p>
+                チームで話し合った結果、召喚に重きを置いたゲームにしようという意見にまとまり、制作を始めました。<br>
+                ただ召喚するだけでは物足りなさを感じたため、組み合わせや合体をできるようにしてレパートリーを増やしました。
+
+            </p>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section challenge">
+            <h2>挑戦したこと</h2>
+            <h3>プレイヤー</h3>
+            <p>
+                プレイヤーを担当するメインプログラマーに挑戦しました。<br>
+                「召喚出来てはならない状況や位置での制御」<br>
+                「合体や組合せができるモンスターが範囲内にいるなら合成されたモンスターを新しく召喚する。」<br>
+                など、ゲームの肝である召喚や組合せの部分に苦戦しながらもやり遂げることができました。<br>
+            </p>
+            <div class="video-frame">
+                <video controls>
+                    <source src="../moves/sk.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+            </div>
+        </div>
+       
+        <div class="section GameImg">
+
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section introduction">
+            <h2>こだわった部分</h2>
+            <h3>敵モンスターである蝙蝠の動き</h3>
+            <p>
+                こうもりの動きに対し、一定フレームごとにプレイヤーとの間の距離を測り<br>
+                距離に応じたベクトルを加算し続ける事で減速、加速を滑らかなに行うよう制御しました。<br>
+                またプレイヤーキャラクターや召喚したモンスターに当たった時、反対方向へのノックバック制御を実装しました
+            </p>
+            <div class="video-frame">
+                <video controls>
+                    <source src="../moves/koumori.mp4" type="video/mp4">
+                  </video>
+            </div>
+        </div>
+    
+        <div class="section learn">
+            <h2>学んだこと</h2>
+            <h3>ホウレンソウ</h3>
+            <p>
+            今回ゲームのメイン部分を担当してみて、相談や報告をする事が多くありました。<br>
+            作業範囲が重なるためチームメンバーの作業部分や状況を把握する必要があり、改めて「ホウレンソウ」の大切さを学びました。<br>
+            自分の作業が終わらないと検証が出来ない、先に進めることができないというタスクが多く<br>
+            プレッシャーも感じましたが、やり遂げることができ自身がついた事もあり充実した製作期間になったと感じています。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const headings = document.querySelectorAll("h2");
+
+    window.addEventListener("scroll", function() {
+        headings.forEach(function(heading) {
+            if (isElementInViewport(heading)) {
+                heading.classList.add("fadeIn");
+            } else {
+                heading.classList.remove("fadeIn");
+            }
+        });
+    });
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+});
+</script>

@@ -1,0 +1,119 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e5e3e3;
+}
+
+header {
+    background-color: #a549bc;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section h2, .section h3 {
+    color: #a549bc;
+}
+
+.section p {
+    color: #333;
+    line-height: 1.6;
+}
+
+.GameImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.GameImg img {
+    max-width: calc(50% - 20px);
+    margin: 10px;
+}
+
+.Horizon {
+    width: 100%;
+    margin: 30px 0;
+}
+.kodawari{
+display: flex;
+}
+/*ここからコードに対するデザイン*/
+pre {
+    width:600px;
+    height: 450px;
+    size: 1000px;
+    
+    overflow: scroll;               /*文字が枠外にはみ出た場合スクロールバーをつける*/
+    padding: 1em;                   /* 内側の余白 */
+    
+    border: solid 1px #4d4d4d;  /* 枠線（枠線を濃い黒に） */
+    background: #25292f;        /* 背景色（背景を黒に） */
+    color: #fff;                /* 文字色（文字を白に） */
+    }
+/*ここまでコードに対するデザイン*/
+/*ここからExcel写真*/
+.kodawari img{
+    width: 1000px;
+    size: 1000px;
+}
+/*ここまでExcel写真*/
+.image-container {
+    width: 1000px;
+    size: 1000px;
+    overflow: scroll; /* はみ出した部分にスクロールバーを表示 */
+  }
+  
+  /* 動画に対する処理 */
+  .video-frame {
+    border: 10px solid #ba7cca; /* フレームを作成 */
+    max-width: 600px; /* 最大幅を設定 */
+    margin: 20px auto; /* 中央配置と余白設定 */
+    overflow: hidden; /* コンテンツがフレームを超えないように */
+  }
+  
+  video {
+    display: block;
+    width: 100%; /* コンテンツがフレーム内にフィットするように */
+    height: auto;
+  }
+  /* 動画に対する処理 */
+
+/*ここからアニメーションに対するデザイン*/
+.fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*ここまでアニメーションに対するデザイン*/

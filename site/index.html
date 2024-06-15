@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオ</title>
+    <link rel="stylesheet" href="../styles/style_home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- navでリンク設定 -->
+        <nav class="sidebar">
+            <!--リスト-->
+            <ul>
+                <li><a href="#home" id="home-link">ホーム</a></li>
+                <li><a href="#about" id="infroduction-link">自己紹介</a></li>
+                <li><a href="#portfolio" id="work-link">作品</a></li> <!-- id属性を追加 -->
+            </ul>
+        </nav>
+
+        <main class="content">
+
+            <h1 class="portfolio-title" id="portfolio-title" class="not_up">Portfolio</h1> <!-- id属性を追加 -->
+            
+            <!-- 自己紹介 -->
+            <section id="about-section_infroduction" class="hidden">
+                <p>
+                国際電子ビジネス専門学校　ITエンジニア科<div>
+                ゲームプログラムコース３年制課程　在籍<div>
+                宮城　響と申します。<div>
+                
+                専門学校では、チームや個人でのゲーム制作を通して<div>
+                プログラミングを学んでおります。</div>
+                </p>
+            </section>
+
+            <!-- 作品 -->
+            <section id="about-section_work" class="hidden">
+            <ul>
+                <li><a href="#home">個人作品</a></li>
+                <li><a href="#about">チーム作品</a></li>
+                <li><a href="#portfolio">開発テンプレート</a></li>
+            </ul>
+            </section>
+
+        </main>
+
+    </div>
+</body>
+</html>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // 文字
+        var portfolioTitle = document.getElementById('portfolio-title');
+       
+
+        var links = document.querySelectorAll('.sidebar ul li a');
+
+        links.forEach(function(link) {
+                // クリックされたなら
+                link.addEventListener("click", function(event) {
+                event.preventDefault(); // リンクのデフォルト動作を無効化
+
+                var id = this.getAttribute('id'); // クリックされたリンクのID
+                
+                // 切替用関数
+                Mode_Swich(id,portfolioTitle);
+        });
+
+    }); 
+
+});
+    
+    // 表示切替用の関数
+    // 1クリックしたリンクのID 2項目文字
+    const Mode_Swich = (ID,title) =>
+    {
+        // クリック項目の表示と非表示を管理する変数
+        var aboutSection = [document.getElementById('about-section_work'),
+                            document.getElementById('about-section_infroduction')];
+
+        // ホームがクリックされていればifに入らないので元の表示に戻る
+        title.textContent = "Portfolio"; 
+
+        // （下記は余裕があれば関数化する）
+        // IDがportfolio-link（「作品」がクリックされたなら）
+        if(ID == "work-link")
+        {
+        // ポートフォリオのタイトルのテキストを変更
+        title.textContent = "Work"; 
+        // hiddenを消すことで表示する
+        aboutSection[0].classList.remove('hidden'); 
+        }
+        // クリックされていないかつhiddenになっていないなら
+        else if(aboutSection[0].classList != 'hidden')
+        {
+        // hiddenをつけたし非表示にする
+        aboutSection[0].classList.add('hidden'); 
+        
+        }
+
+        // 自己紹介がクリックされたなら
+        if(ID == "infroduction-link")
+        {
+        // ポートフォリオのタイトルのテキストを変更
+        title.textContent = "Infroduction"; 
+        // hiddenを消すことで表示する
+        aboutSection[1].classList.remove('hidden'); 
+        }
+        // クリックされていないかつhiddenになっていないなら
+        else if(aboutSection[1].classList != 'hidden')
+        {
+        // hiddenをつけたし非表示にする
+        aboutSection[1].classList.add('hidden'); 
+        
+        }
+
+    }
+
+</script>

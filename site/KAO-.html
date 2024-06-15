@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/profile.css" />
+    <link rel="stylesheet" href="../styles/vendors/swiper-bundle.min.css" />
+    <title>pot</title>
+</head>
+
+<body>
+    <header>
+        <h1>KAO-</h1>
+    </header>
+
+    <div class="container">
+        <div class="section headline">
+            <h2>作品概要</h2>
+            <p>
+                学校で行う１週間でゲームを作るイベントで作成しました。<br>
+                顔撮影を行いキャラクターにゲームをプレイしてきた人の顔を当てはめ、スコアを競い合う<br>
+                横スクロールのシューティングゲームです。
+            </p>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section GameImg">
+            <img src="../images/BalloonFight.png" alt="タイトル画像">
+            <img src="../images/BF_game.png" alt="ゲーム画像">
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section overview">
+            <h3>ゲームジャンル</h3>
+            <p>アクション</p>
+            <h3>開発環境・使用言語</h3>
+            <p>:c++ :DxLib</p>
+            <h3>制作時間</h3>
+            <p>1週間</p>
+            <h3>製作人数</h3>
+            <p>4人</p>
+            <h3>担当箇所</h3>
+            <p>敵・ボス</p>
+            <h3>動画URL</h3>
+            <p>未実装</p>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section production">
+            <h2>制作背景</h2>
+            <p>
+                爆笑をテーマに、チームで制作しました。<br>
+                どのような時に面白さを感じるか話し合い、
+                任天堂3DSにある顔シューティングのようなゲームをPCで作ることができれば<br>
+                盛り上がるのではないかと考え、OpenCVでの顔撮影やAIを使った顔認証機能など新しい技術に挑戦しました。
+            </p>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section challenge">
+            <h2>挑戦したこと</h2>
+            <h3>OpenCV</h3>
+            <p>
+                カメラの起動とコントローラーの入力を取り撮影を行う仕組みを作り、<br>
+                OpenCVのAIで顔認証と顔部分の切り取りを行うプログラムを作成しました。
+            </p>
+        </div>
+       
+        <div class="section GameImg">
+
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section introduction">
+            <h2>こだわった部分</h2>
+            <p>
+            csvファイル形式に変換したファイルから値を読み込む処理を実装しました。<br>
+            敵の情報をExcelで管理し、沢山の敵を一度に実装するなど容易に管理出来るようにしました。
+            </p>
+
+           
+
+        </div>
+
+            
+
+        <div class="section GameImg">
+            <div class="kodawari">
+                <code>
+                    <pre>
+                        // 配列情報を持った敵
+                        E_NUM E_Spawn::data[63];
+                        int E_Spawn::row;
+                        
+                        // コンストラクタ
+                        E_Spawn::E_Spawn()
+                        {
+                            int fp;
+                            char buf[100];	// 文字列読み取り用
+                            char c;			// 文字をひとつづつたどっていくための変数
+                            int col = 1;	// csvファイルの列
+                            row = 0;		// csvファイルの行
+                            int count = 0;	// 文字列を作るために1文字づつずらしていく
+                        
+                            // 配列内のすべてを0で埋める
+                            memset(buf, 0, sizeof(buf));
+                        
+                            // ファイルのロード
+                            if (fp = FileRead_open("Resource/dat/Enemys_Data.csv"));
+                        
+                        
+                            // 1行目を無視する ファイルから１文字取得するための変数
+                            while (FileRead_getc(fp) != '\n');
+                        
+                            while (true) {
+                                while (true) {
+                        
+                                    // ファイルの1文字を取得を繰り返し、文字列にする
+                                    c = FileRead_getc(fp);
+                                    buf[count] = c;
+                        
+                                    // カンマ、改行、EOFならループを抜ける
+                                    if (c == ',' || c == '\n' || c == EOF) {
+                                        buf[count] = '\0';
+                                        break;
+                                    }
+                                    count++;
+                                }
+                        
+                                switch (col) {
+                        
+                                    // X座標
+                                case 1:
+                        
+                                    data[row].location_x = atoi(buf);
+                                    break;
+                        
+                                    // Y座標
+                                case 2:
+                                    data[row].location_y = atoi(buf);
+                                    break;
+                        
+                                    // 半径
+                                case 3:
+                                    data[row].radius = atoi(buf);
+                                    break;
+                        
+                                    // 敵スピード
+                                case 4:
+                                    data[row].speed = atoi(buf);
+                                    break;
+                        
+                                    // 弾のスピード
+                                case 5:
+                                    data[row].bullet_speed = atoi(buf);
+                                    break;
+                        
+                                    // スコア
+                                case 6:
+                                    data[row].score = atoi(buf);
+                                    break;
+                        
+                                    // HP
+                                case 7:
+                                    data[row].hp = atoi(buf);
+                                    break;
+                        
+                                    // 出現時間
+                                case 8:
+                                    data[row].time = atoi(buf);
+                                    break;
+                                }
+                                // 文字列を作る	bufをまた0で埋めておく
+                                memset(buf, 0, sizeof(buf));
+                        
+                                // EOFならoutに飛ぶ
+                                // EOFがない限り永遠にループする
+                                if (c == EOF) {
+                                    goto out;
+                                }
+                        
+                                // EOF通らなかったなら読み込む位置を初期化して次の列を読む
+                                count = 0;
+                                col++;
+                        
+                                // 改行なら次の行に行く
+                                if (c == '\n') {
+                                    col = 1;
+                                    ++row;
+                                }
+                                // またループの一番初めに戻る
+                            }
+                        
+                        out:
+                            FileRead_close(fp);
+                        }
+                        
+                 </pre>
+                </code>
+            <!--Excel画像-->
+                
+            <!--Excel画像-->
+        </div>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section learn">
+            <h2>学んだこと</h2>
+            <p>
+                初めて後輩である１年生を含めたチームでの製作を通して、プログラムへの理解を深めることができました。<br>
+                実際質問をうけるとDxライブラリの関数がどのように動いているのかを正確に理解できておらず、改めて調べることがありました。<br>
+                後輩に教えるという形でわかることも多く、アウトプットすることでプログラムへの理解を深めることができたと思います。<br>
+                自分自身も多くのことを学ぶことができ、充実した製作になりました。<br>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const headings = document.querySelectorAll("h2");
+
+    window.addEventListener("scroll", function() {
+        headings.forEach(function(heading) {
+            if (isElementInViewport(heading)) {
+                heading.classList.add("fadeIn");
+            } else {
+                heading.classList.remove("fadeIn");
+            }
+        });
+    });
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+});
+</script>

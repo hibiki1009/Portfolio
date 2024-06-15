@@ -1,0 +1,110 @@
+
+/*
+[メモ]
+flex　→　親要素に対して子要素を横並びにする機能
+display: flexで有効にすることができる
+
+*/
+
+
+/* 基本のスタイルを設定 */
+body {
+    font-family: Arial, sans-serif;     /* 全体フォントを設定 */
+    margin: 0;                          
+    padding: 0;
+    background-color: #f4f4f4e0;
+    color: #533a4d;                      /* 文字色を設定 */
+    display: flex;
+    height: 100vh;                      /* 高さに合わせる */
+  }
+  
+  /* 全体 */
+  .container {
+    display: flex;
+    width: 100%;    /* 幅 */
+  }
+  
+  /* サイドバー */
+  .sidebar {
+   
+    background-color: #533a4d; 
+    color: #fff; 
+    width: 200px; 
+    padding: 20px; 
+    box-sizing: border-box;  /* ボックスサイズでボーダーを含む */
+    display: flex; /* Flexbox を使って中央揃えにする */
+    justify-content: center; /* 中央揃えにする */
+    align-items: center; /* 垂直方向も中央揃えにする */
+  }
+  
+  /* サイドバー内のリスト */
+  .sidebar ul {
+    list-style: none;
+    padding: 0; 
+    margin: 0;
+    text-align: center; /* 文字を中央揃えにする */
+  }
+  
+  /* リストアイテム*/
+  .sidebar ul li {
+    margin-bottom: 20px;  /* 下部マージンを設定 */
+  }
+  
+  /* リスト内のリンク */
+  
+  .sidebar ul li a {
+    color: #fff; 
+    text-decoration: none; /* 下線を非表示にする */
+    font-size: 1.2em;       /* フォントサイズを設定 */
+  }
+  
+  /* メインコンテンツ */
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: center;  /* 中央揃えにする */
+    align-items: center;      /* 垂直方向中央揃え */
+    background-color: #fff;
+  }
+  
+  /* 文字部分　*/
+.portfolio-title {
+    font-family: 'Roboto', sans-serif; /* フォント設定 */
+    font-size: 4em;                    /* フォントサイズ */
+    color: #3c353c;
+    font-weight: 100;
+    letter-spacing:10px;               /* 文字の幅 */
+
+    /*animation-name:Anime;
+    animation-duration:3s ;/* アニメーション再生*/
+    
+}
+
+@keyframes Anime {
+    0%{
+        transform: translateY(0px);
+      }
+    
+    100%{
+        transform: translateY(-250px);
+      }
+}
+
+/* 非表示 */
+.hidden {
+    display: none;
+    animation-name:Anime;
+}
+
+.profile-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* 自己紹介 */
+#about-section_infroduction{
+    color: #3c353c;
+    margin-left: 100px;
+}
