@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/profile.css" />
+    <link rel="stylesheet" href="../styles/vendors/swiper-bundle.min.css" />
+    <title>pot</title>
+</head>
+
+<body>
+    <header>
+        <h1>Fly</h1>
+    </header>
+
+    <div class="container">
+        <div class="section headline">
+            <h2>作品概要</h2>
+             <p>
+                本作品は1人プレイ用のゲームになっています。<br>
+                2画面で構成されており、プレイヤーはキャラクターの切り替えを行うことで両方のキャラクターを操作することができます。<br>
+                お互いが干渉しあうギミックが多数あり、プレイヤーはそれらを上手く避けたり時には利用することでゴールを目指します。<br>
+                ジャンルとしては横スクロールアクションが主になっていますが、パズル的な要素も含んでいるためやりごたえはあると考えています。
+            </p>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section GameImg">
+            <img src="../images/BalloonFight.png" alt="タイトル画像">
+            <img src="../images/BF_game.png" alt="ゲーム画像">
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section overview">
+            <h3>ゲームジャンル</h3>
+            <p>横スクロールアクション</p>
+            <h3>開発環境・使用言語</h3>
+            <p>Unreal Engine5</p>
+            <h3>制作時間</h3>
+            <p>2ヶ月</p>
+            <h3>製作人数</h3>
+            <p>4人</p>
+            <h3>担当箇所</h3>
+            <p>プレイヤー・一部ギミック</p>
+            <h3>動画URL</h3>
+            <p>未実装</p>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section production">
+            <h2>制作背景</h2>
+            <p>
+                東京ゲームショウの学内ブースに出店する作品を決めるゲーム制作イベントがあり、その時に制作したものになっています。<br>
+                ２か月ほどの時間をかけ、チーム４人で制作を行いました。<br>
+                また、プロト版からマスター版までの制作期間が設けられており、制作物の進捗発表会なども行いました。
+            </p>
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section challenge">
+            <h2>挑戦したこと</h2>
+             <p>画面切り替え<br>
+                ローカルマルチプレイ機能をうまく活用し、２体のキャラクターを切り替える機能に挑戦しました。<br>
+                以前までは「Unreal Engine4」で制作を行っていたこともあり、「Unreal Engine5」での仕様変更や新機能などでつまづくこともありました。<br>
+                今回の制作を通して、追加した機能のほかにもバージョンアップしたエンジンの使い方などの知識も身に付けることができました。
+            </p>
+        </div>
+
+        <div class="section GameImg">
+            <img src="../images/BFcode2.png" alt="雷の処理">
+            <img src="../images/BFcode.png" alt="雷の処理">
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section introduction">
+            <h2>こだわった部分</h2>
+            <h3>見た目や演出</h3>
+             <p>
+                今回の制作では、VRoidを使用しキャラクターモデルを制作したほかにもキャラクターに表情の変化を付けたり足場によって足音を変更したりと<br>
+                細かい部分にこだわり、制作を行いました。<br>
+            </p>
+        </div>
+
+        <div class="section GameImg">
+            <img src="../images/雷a.png" alt="雷の処理">
+            <img src="../images/雷p.png" alt="雷の処理">
+        </div>
+
+        <hr class="Horizon" />
+
+        <div class="section learn">
+            <h2>学んだこと</h2>
+             <p>
+                今回の制作はVRoidのキャラクターモデルの差し込みやエラーの修正、アニメーションなどは自身が担当しました。<br>
+                Unreal Engineのアニメーション差し替えの技術や、VRoidのプラグインに対する知識が身につき3Dモデルに対する理解が深まりました。<br>
+                また、今回は「Unreal Engine5」を使用し制作を行ったことで最新のゲームエンジンに対する技術も身についたと感じています。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const headings = document.querySelectorAll("h2");
+
+    window.addEventListener("scroll", function() {
+        headings.forEach(function(heading) {
+            if (isElementInViewport(heading)) {
+                heading.classList.add("fadeIn");
+            } else {
+                heading.classList.remove("fadeIn");
+            }
+        });
+    });
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+});
+</script>
